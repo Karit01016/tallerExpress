@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { allStores, storeByaddress, storeByname } from "../controllers/stores/read.js";
-import { create,createOther} from "../controllers/stores/create.js";
+import { createOneStore,createOtherStore} from "../controllers/stores/create.js";
 
 const routerStores = Router();
 //read/get
@@ -12,8 +12,8 @@ routerStores.get("/name/:nameStore", storeByname)
 
 //creates/post
 
-routerStores.post("/create",create)
-routerStores.post("/createMany",createOther)
+routerStores.post("/create",createOneStore)
+routerStores.post("/createMany",createOtherStore)
     
     
     

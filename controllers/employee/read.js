@@ -32,13 +32,14 @@ let findposition = async (req, res,next) => {
 };
 let EmployeeByname = async (req, res,next) => {
   try {
-    let nameEmployees = decodeURIComponent(req.params.name); // ecodeURIComponent me
-    console.log(nameEmployees);
+    let nameEmployee = req.params.nameEmployee; // ecodeURIComponent preguntar al profe este parametro lo debo poner en el postman
+     
+    console.log(nameEmployee);
 
-    let employee = await employee.find({ name: nameEmployees}); // Buscar por el campo "namEMPLOYEES"
+    let employee = await Employee.find({ name: nameEmployee}); // Buscar por el campo "namEMPLOYEES"
     if (employee.length === 0) {
       return res.status(404).json({
-        response: `Not store found with the name: ${nameEmployees}`,
+        response: `Not employee found with the name: ${nameEmployee}`,
       });
     }
     return res.status(200).json({

@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { allProducts , findProducts , productByname } from "../controllers/stores/read.js";
-import { create,createOther} from "../controllers/stores/create.js";
+import { allProducts , findProducts , productByname } from "../controllers/products/read.js";
+import { createOneProduct,createOtherProducts} from "../controllers/products/create.js"
 
 const routerProducts = Router();
 //read/get
@@ -12,8 +12,8 @@ routerProducts.get("/name/:nameProduct", productByname)
 
 //creates/post
 
-routerProducts.post("/create",create)
-routerProducts.post("/createMany",createOther)
+routerProducts.post("/create",createOneProduct)
+routerProducts.post("/createMany",createOtherProducts)
     
     
     

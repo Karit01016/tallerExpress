@@ -1,10 +1,10 @@
- import Employee from ("../../models/Employee.js")
+ import Employee from "../../models/Employee.js";
 //interactua y me da las funciones para poderme conectar con el.
 
-let create = async (req, res, next) => {
+let createOneEmployee = async (req, res, next) => {
   try {
     let employee = req.body; //en el   body va toda la informacion  a crear
-    let createEmployee = await Employee.creat(employee);
+    let createEmployee = await Employee.create(employee);
     return res.status(201).json({
       response: createEmployee,
     });
@@ -12,10 +12,10 @@ let create = async (req, res, next) => {
     next(error);
   }
 };
-let createOther = async (req, res, next) => {
+let createOtherEmployee = async (req, res, next) => {
   try {
     let employee = req.body; // espera un arreglo de objetos en el postman
-    let createManyEmployees = await Product.insertMany(employee);
+    let createManyEmployees = await Employee.insertMany(employee);
     return res.status(201).json({
       response: createManyEmployees,
     });
@@ -24,4 +24,4 @@ let createOther = async (req, res, next) => {
   }
 };
 
-export { create, createOther };
+export { createOneEmployee, createOtherEmployee };

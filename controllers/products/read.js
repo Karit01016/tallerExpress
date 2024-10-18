@@ -32,20 +32,21 @@ let findProducts= async (req, res,next) => {
 };
 let productByname = async (req, res,next) => {
   try {
-    let nameProdut = decodeURIComponent(req.params.name); // ecodeURIComponent me
-    console.log(nameProdut);
+    let nameProduct = req.params.nameProduct; // ecodeURIComponent preguntar al profe este parametro lo debo poner en el postman
+     
+    console.log(nameProduct);
 
-    let findProducts = await Product.find({ name: nameProdut }); // Buscar por el campo "namestore"
-    if (findProducts.length === 0) {
+    let employee = await Product.find({ name: nameProduct}); // Buscar por el campo "namEMPLOYEES"
+    if (employee.length === 0) {
       return res.status(404).json({
-        response: `Not product found with the name: ${nameProdut}`,
+        response: `Not employee found with the name: ${nameProduct}`,
       });
     }
     return res.status(200).json({
-      response: store,
+      response: employee,
     });
   } catch (error) {
     next(error);
   }
-};
+}
 export { allProducts,findProducts,productByname };

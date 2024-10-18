@@ -1,7 +1,7 @@
 import Product from "../../models/Product.js";
 //interactua y me da las funciones para poderme conectar con el.
 
-let create = async (req, res, next) => {
+let createOneProduct = async (req, res, next) => {
   try {
     let product = req.body; //en el   body va toda la informacion  a crear
     let createProduct = await Product.create(product);
@@ -12,7 +12,7 @@ let create = async (req, res, next) => {
     next(error);
   }
 };
-let createOther = async (req, res, next) => {
+let createOtherProducts = async (req, res, next) => {
   try {
     let product = req.body; // espera un arreglo de objetos en el postman
     let createManyProducts = await Product.insertMany(product);
@@ -24,4 +24,4 @@ let createOther = async (req, res, next) => {
   }
 };
 
-export { create, createOther };
+export { createOneProduct, createOtherProducts };

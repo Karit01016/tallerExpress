@@ -1,7 +1,7 @@
 import Store from "../../models/Store.js";
 //interactua y me da las funciones para poderme conectar con el.
 
-let create = async (req, res, next) => {
+let createOneStore = async (req, res, next) => {
   try {
     let store = req.body; //en el   body va toda la informacion mportante
     let createStore = await Store.create(store);
@@ -12,7 +12,7 @@ let create = async (req, res, next) => {
     next(error);
   }
 };
-let createOther = async (req, res, next) => {
+let createOtherStore = async (req, res, next) => {
   try {
     let stores = req.body; // espera un arreglo de objetos en el postman
     let createManyStore = await Store.insertMany(stores);
@@ -24,4 +24,4 @@ let createOther = async (req, res, next) => {
   }
 };
 
-export { create, createOther };
+export { createOneStore, createOtherStore };
